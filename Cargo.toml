@@ -1,0 +1,35 @@
+[package]
+name = "dc-config-explorer"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+description = "Desktop explorer for the Dragon City game configuration (fan-made, not affiliated with SocialPoint)."
+license = "MIT"
+authors = ["Marcuth"]
+
+[dependencies]
+# Dragon City
+dc-config = "0.1"
+dc-config-mapper = "0.1"
+dc-localization = "0.1"
+dc-statistics = "0.1"
+dc-core = "0.1"
+
+# UI
+eframe = "0.36.2"
+egui = "0.36.2"
+egui_extras = "0.36.2"
+fastframe-fonts = { git = "https://github.com/crmne/fastframe", tag = "v0.15.5" }
+fastframe-text = { git = "https://github.com/crmne/fastframe", tag = "v0.15.5" }
+fastframe-dirs = { git = "https://github.com/crmne/fastframe", tag = "v0.15.5" }
+fastframe-file = { git = "https://github.com/crmne/fastframe", tag = "v0.15.5" }
+
+# Runtime / misc
+tokio = { version = "1", features = ["rt-multi-thread"] }
+rfd = "0.16"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
